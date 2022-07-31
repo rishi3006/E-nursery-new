@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Nursery</title>
+    <link rel="icon" href="logo-2.svg" />
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css\style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-1">
+        <a href="/" class="logo"
+          ><i class="fas fa-shopping-basket"></i
+          ><span style="color: #27ae60"> E-</span>nursery</a
+        >
+      </div>
+
+      <div class="header-2">
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+          <a href="/">home</a>
+          <!-- <a href="#product">product</a> -->
+          <a href="/team">Contact</a>
+        </nav>
+
+        <div class="icons">
+          <a href="/cart" class="fas fa-shopping-cart"></a>
+          <!-- <a href="#" class="fas fa-heart"></a> -->
+          <!-- <a href="#" class="fas fa-user-circle"></a> -->
+          <div class="size"><%= plants.length %></div>
+        </div>
+      </div>
+    </header>
+    <!-- Products -->
+    <section class="product" id="product">
+      <h1 class="heading"><span>My Cart</span></h1>
+
+      <div class="cart">
+        <div class="head cart-item">
+          <div class="item">Index</div>
+          <div class="item">Name</div>
+          <div class="item">Quantity</div>
+          <div class="item">Price</div>
+        </div>
+        <% plants.forEach(function(plant, idx){ %>
+
+        <div class="cart-item">
+          <div class="item"><%= idx+1 %></div>
+          <div class="item"><%= plant.name %></div>
+          <div class="item"><%= plant.qty %></div>
+          <div class="item"><%= plant.qty * plant.price %></div>
+        </div>
+        <% }) %>
+        <div class="head cart-item">
+          <div class="item">Total</div>
+          <div class="item"></div>
+          <div class="item"></div>
+          <div class="item"><%= total %></div>
+        </div>
+      </div>
+    </section>
+    <% if(plants.length>0){ %>
+    <section class="confirm">
+      <!-- <form action="get">
+        <button type="submit" class="btn">Proceed</button>
+      </form> -->
+      <a href="/user-details" class="btn">Proceed</a>
+    </section>
+    <%}%>
+    <section class="footer">
+      <h1 class="credit">
+        created by <span> e-nursery </span> | all rights reserved!
+      </h1>
+    </section>
+  </body>
+</html>
